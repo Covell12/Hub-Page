@@ -1,0 +1,192 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  background-color: #ffeb3b;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Cartoon Background */
+.cover-page {
+  height: 100vh;
+  background: url('https://i.imgur.com/your-cartoon-background.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: #2f4f4f;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer; /* Change cursor to indicate clickability */
+}
+
+.cover-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6); /* Light overlay for cartoon effect */
+  z-index: 1;
+}
+
+/* Cartoon Title */
+.cover-title {
+  font-size: 6em;
+  font-weight: bold;
+  color: #ff5722;
+  text-shadow: 4px 4px 0 #ffab00, 4px 4px 0 #ffab00;
+  position: relative;
+  z-index: 2;
+  animation: bounce 2s infinite;
+}
+
+/* Animation for Cartoon Style */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Cartoon Button */
+.scroll-button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  color: #fff;
+  background: #f57c00;
+  border: 4px solid #ffab00;
+  border-radius: 15px;
+  cursor: pointer;
+  animation: jello 1.5s infinite;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.scroll-button:hover {
+  transform: rotate(5deg);
+}
+
+@keyframes jello {
+  0%, 100% { transform: skewX(0deg); }
+  25% { transform: skewX(-15deg); }
+  50% { transform: skewX(15deg); }
+  75% { transform: skewX(-15deg); }
+}
+
+/* Ink Splat Style */
+.ink-splat {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none; /* Ensures splats don't interfere with clicks */
+  z-index: 1; /* Lower z-index so it appears behind interactive elements */
+  animation: splat 0.5s forwards;
+}
+
+@keyframes splat {
+  from {
+      transform: scale(0);
+      opacity: 1;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+/* Cartoon Boxes for Websites */
+.main-content {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.box {
+  background: #fff59d;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 4px dashed #ff6f00;
+  border-radius: 15px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 8px 8px 0 #ffab00;
+}
+
+.box:hover {
+  transform: rotate(-5deg);
+  box-shadow: 12px 12px 0 #ff8f00;
+}
+
+.box img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 4px solid #ff6f00;
+}
+
+.box h3 {
+  margin: 15px 0 10px;
+  font-size: 2em;
+  color: #f44336;
+}
+
+.box p {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.box button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #ff5722;
+  border: 3px solid #ffab00;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.box button:hover {
+  transform: scale(1.1);
+  background-color: #e64a19;
+}
+
+/* Light/Dark Mode Toggle */
+.toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 3; /* Above the cover overlay */
+}
+
+.toggle-button {
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  background: #ffeb3b;
+  border: 2px solid #f57c00;
+  border-radius: 15px;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.toggle-button:hover {
+  background: #ffc107;
+}
+
+.imagefixer {
+  background-size: cover; /* Ensures the background covers the entire viewport */
+  background-position: center; /* Centers the background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+}
